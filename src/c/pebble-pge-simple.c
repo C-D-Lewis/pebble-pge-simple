@@ -1,4 +1,4 @@
-#include "pge.h"
+#include "pebble-pge-simple.h"
 
 // State
 static Window *s_game_window;
