@@ -1,4 +1,3 @@
-#include <pebble.h>
 #include "pge.h"
 
 // State
@@ -41,9 +40,6 @@ void pge_begin(PGELogicHandler *logic_handler, PGERenderHandler *render_handler,
   s_render_handler = render_handler;
 
   s_game_window = window_create();
-#if defined(PBL_SDK_2)
-  window_set_fullscreen(s_game_window, true);
-#endif
   window_set_background_color(s_game_window, GColorBlack);
   window_set_window_handlers(s_game_window, (WindowHandlers) {
     .load = game_window_load,
@@ -137,10 +133,11 @@ bool pge_is_paused() {
 /************************* Engine Internal Functions **************************/
 
 static void count_framerate() {
+  const time_t period_s = 1;   // Every second
   time_t now = time(NULL);
-  if(now - s_last_report > PGE_FRAMERATE_INTERVAL_S) {
+  if(now - s_last_report > period_s) {
     s_last_report = now;
-    s_avg_framerate = s_frame_counter / PGE_FRAMERATE_INTERVAL_S;
+    s_avg_framerate = s_frame_counter / period_s;
     s_frame_counter = 0;
   } else {
     s_frame_counter++;

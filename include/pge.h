@@ -1,25 +1,6 @@
-/**
- * PGE - A simple game engine for Pebble
- *
- * Author:
- * Chris Lewis
- *
- * Source and example:
- * https://github.com/C-D-Lewis/pge
- *
- * Abstracted Pebble APIs (DO NOT REIMPLEMENT!):
- * - Clicks using a PGEClickHandler
- * - Window is managed for you
- * - main() function is managed for you. Implement pge_init() and pge_deinit() for app init/deinit
- * - If using PGE WS, the marked parts of pebble-js-app-ws.js should not be modified in the app JS file.
- */
-
 #pragma once
 
 #include <pebble.h>
-
-// Number of seconds between framerate calculations
-#define PGE_FRAMERATE_INTERVAL_S 1
 
 /********************************** Engine ***********************************/
 
@@ -81,7 +62,7 @@ void pge_manual_advance();
 Window* pge_get_window();
 
 /**
- * Get the average framerate, averaged over PGE_FRAMERATE_INTERVAL_S seconds
+ * Get the average framerate, averaged over one second
  */
 int pge_get_average_framerate();
 
