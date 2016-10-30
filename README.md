@@ -1,4 +1,4 @@
-# pge
+# pebble-pge-simple
 
 Simple looping game engine for Pebble. Available on
 [NPM](https://www.npmjs.com/package/pebble-pge-simple).

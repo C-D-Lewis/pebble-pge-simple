@@ -1,15 +1,13 @@
-/**
- * This is the bare minimum to make a looping game with PGE!
- */
-
 #include <pebble.h>
 
-#include <pebble-pge/pge.h>
+#include <pebble-pge-simple/pebble-pge-simple.h>
+#include <pebble-isometric/pebble-isometric.h>
+
 #include "drawable/block.h"
 
 #define NUM_BLOCKS 4
 #define MAX_HEIGHT 90
- #define DURATION  2000
+#define DURATION  2000
 
 static Block* s_blocks[NUM_BLOCKS];
 
@@ -44,11 +42,11 @@ static void game_logic() {
 static void game_draw(GContext *ctx) {
   // Per-frame game rendering here
 
-  pge_isometric_begin(ctx);
+  isometric_begin(ctx);
   for(int i = 0; i < NUM_BLOCKS; i++) {
     block_render(s_blocks[i]);
   }
-  pge_isometric_finish(ctx);
+  isometric_finish(ctx);
 }
 
 static void game_click(int button_id, bool long_click) {
@@ -69,8 +67,7 @@ void pge_init() {
 
   // Start the game
   pge_begin(game_logic, game_draw, game_click);
-  pge_isometric_set_projection_offset(
-    PBL_IF_ROUND_ELSE(GPoint(90, 105), GPoint(70, 100)));
+  isometric_set_projection_offset(PBL_IF_ROUND_ELSE(GPoint(90, 105), GPoint(70, 100)));
 
   // Animate blocks
   static AnimationImplementation up_impl = {

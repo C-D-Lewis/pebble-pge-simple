@@ -18,12 +18,12 @@ void block_logic(Block *this) {
 
 void block_render(Block *this) {
 #if defined(PBL_BW)
-  pge_isometric_fill_box(this->origin, BLOCK_SIZE, BLOCK_HEIGHT, GColorBlack);
-  pge_isometric_draw_box(this->origin, BLOCK_SIZE, BLOCK_HEIGHT, GColorWhite);
-  pge_isometric_fill_rect(Vec3(this->origin.x, this->origin.y, this->origin.z + BLOCK_HEIGHT), BLOCK_SIZE, GColorWhite);
+  isometric_fill_box(this->origin, BLOCK_SIZE, BLOCK_HEIGHT, GColorBlack);
+  isometric_draw_box(this->origin, BLOCK_SIZE, BLOCK_HEIGHT, GColorWhite);
+  isometric_fill_rect(Vec3(this->origin.x, this->origin.y, this->origin.z + BLOCK_HEIGHT), BLOCK_SIZE, GColorWhite);
 #elif defined(PBL_COLOR)
-  pge_isometric_fill_box(this->origin, BLOCK_SIZE, BLOCK_HEIGHT, this->side_color);
-  pge_isometric_fill_rect(Vec3(this->origin.x, this->origin.y, this->origin.z + BLOCK_HEIGHT), BLOCK_SIZE, this->face_color);
+  isometric_fill_box(this->origin, BLOCK_SIZE, BLOCK_HEIGHT, this->side_color);
+  isometric_fill_rect(Vec3(this->origin.x, this->origin.y, this->origin.z + BLOCK_HEIGHT), BLOCK_SIZE, this->face_color);
 #endif
 }
 

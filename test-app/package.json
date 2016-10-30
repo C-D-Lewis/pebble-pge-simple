@@ -2,9 +2,6 @@
   "version": "1.0.0",
   "author": "Chris Lewis",
   "private": true,
-  "dependencies": {
-    "pebble-pge": "1.6.2"  
-  },
   "keywords": [
     "pebble-app"
   ],
@@ -28,9 +25,15 @@
     "targetPlatforms": [
       "aplite",
       "basalt",
-      "chalk"
+      "chalk",
+      "diorite",
+      "emery"
     ],
     "capabilities": []
   },
-  "name": "pge-test"
+  "name": "pge-test",
+  "dependencies": {
+    "pebble-isometric": "^1.0.0",
+    "pebble-pge-simple": "file:///Users/chrislewis/Dropbox/Pebble-Dev/4.0/lib/pebble-pge-simple"
+  }
 }
